@@ -15,6 +15,8 @@ list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake/modules"
 #include the dune macros
 include(DuneMacros)
 
+set(DXT_DATA_BASEDIR "${CMAKE_CURRENT_BINARY_DIR}/data")
+
 # start a dune project with information from dune.module
 dune_project()
 dune_enable_all_packages()
