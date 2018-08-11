@@ -1,5 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
-add_library(lebedevdata 
+dune_add_library(lebedevdata
             data/order_101.cxx
             data/order_107.cxx
             data/order_113.cxx
@@ -33,4 +32,3 @@ add_library(lebedevdata
             data/order_95.cxx
             data/order_9.cxx
 )
-target_compile_options(lebedevdata PRIVATE -std=c++11 -Os)
