@@ -6,18 +6,18 @@ namespace Dune {
 namespace XT {
 namespace Data {
 
-boost::path basedir()
+boost::filesystem::path basedir()
 {
-    return boost::path(dxt_data_basedir);
+    return boost::filesystem::path(dxt_data_basedir);
 }
 
 static inline std::string spe10_model1_filename()
 {
-    return basedir() / "perm_case1.dat";
+    return (basedir() / "perm_case1.dat").string();
 }
 static inline std::string spe10_model2_filename()
 {
-    return basedir() / "spe_perm.dat";
+    return (basedir() / "spe_perm.dat").string();
 }
 
 } // namespace Data

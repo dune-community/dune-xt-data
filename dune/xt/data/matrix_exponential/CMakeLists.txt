@@ -1,0 +1,7 @@
+
+dune_add_library(matrix_exponential
+        r8lib.cpp 
+        c8lib.cpp 
+        matrix_exponential.cpp 
+        matrix_exponential_extension.cpp
+)
