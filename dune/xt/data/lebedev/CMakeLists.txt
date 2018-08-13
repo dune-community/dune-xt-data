@@ -1,4 +1,5 @@
 dune_add_library(lebedevdata
+                APPEND
                  data/order_101.cxx
                  data/order_107.cxx
                  data/order_113.cxx

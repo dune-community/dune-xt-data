@@ -18,7 +18,7 @@ add_custom_target(unpack_data
                   DEPENDS ${DXT_DATA_BASEDIR}/spe_perm.dat ${DXT_DATA_BASEDIR}/spe_phi.dat
                           ${DXT_DATA_BASEDIR}/perm_case1.dat)
 
-dune_add_library(dxt_data paths.cc)
+dune_library_add_sources(dxt_data SOURCES paths.cc)
 # make sure data is unpacked for downstream modules
 add_dependencies(dxt_data unpack_data)
 
