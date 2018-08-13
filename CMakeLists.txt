@@ -2,8 +2,8 @@
 # This file is part of the dune-xt-data project:
 #   https://github.com/dune-community/dune-xt-data
 # Copyright 2018 dune-xt-data developers and contributors. All rights reserved.
-# License: Dual licensed as BSD 2-Clause License (http://opensource.org/licenses/BSD-2-Clause) 
-# or  GPL-2.0+ (http://opensource.org/licenses/gpl-license) 
+# License: Dual licensed as BSD 2-Clause License (http://opensource.org/licenses/BSD-2-Clause)
+# or  GPL-2.0+ (http://opensource.org/licenses/gpl-license)
 # with "runtime exception" (http://www.dune-project.org/license.html)
 # Authors:
 #   Rene Milk (2018)
@@ -34,10 +34,7 @@ set(DXT_DATA_BASEDIR "${CMAKE_CURRENT_BINARY_DIR}/data")
 
 # start a dune project with information from dune.module
 dune_project()
-dune_enable_all_packages(INCLUDE_DIRS
-                         ${dune-xt-data_SOURCE_DIR}/dune
-                         MODULE_LIBRARIES
-                         dxt_data)
+dune_enable_all_packages(INCLUDE_DIRS ${dune-xt-data_SOURCE_DIR}/dune MODULE_LIBRARIES dxt_data)
 
 include(DuneXTInstallPythonPackage)
 # this symlinks all files in python/ to the binary dir and install into the virtualenv from there thereby making the
@@ -47,7 +44,6 @@ include_dependent_binary_python_dirs()
 # do not change order here
 include(DuneUtils)
 add_subdirectory(python)
-
 
 add_header_listing()
 make_dependent_modules_sys_included()
