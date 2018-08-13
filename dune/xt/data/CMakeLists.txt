@@ -1,6 +1,7 @@
 #install headers
-install(FILES location.hh DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dune/xt/data)
+install(FILES paths.hh DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dune/xt/data)
 
+file(MAKE_DIRECTORY "${DXT_DATA_BASEDIR}")
 add_custom_command(
   OUTPUT ${DXT_DATA_BASEDIR}/spe_perm.dat ${DXT_DATA_BASEDIR}/spe_phi.dat
   COMMAND ${CMAKE_COMMAND} -E tar xzf "${CMAKE_CURRENT_SOURCE_DIR}/por_perm_case2a.zip"
@@ -25,5 +26,9 @@ add_custom_target(unpack_data
 
 dune_add_library(dxt_data
                 paths.cc)
+# make sure data is unpacked for downstream modules
+add_dependencies(dxt_data unpack_data)
+
 add_subdirectory(matrix_exponential)
 add_subdirectory(lebedev)
+add_subdirectory(test)
