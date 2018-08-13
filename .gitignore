@@ -42,3 +42,6 @@
 *.exe
 *.out
 *.app
+
+# jetbrains
+.idea

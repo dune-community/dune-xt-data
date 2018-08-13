@@ -40,6 +40,7 @@ include(DuneXTInstallPythonPackage)
 # this symlinks all files in python/ to the binary dir and install into the virtualenv from there thereby making the
 # compiled extensions directly usable from the venv
 dune_xt_install_python_package(PATH python)
+dxt_add_make_dependent_bindings(dune-xt-common)
 include_dependent_binary_python_dirs()
 # do not change order here
 include(DuneUtils)

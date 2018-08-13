@@ -17,7 +17,7 @@ namespace Data {
 
 boost::filesystem::path basedir()
 {
-  return boost::filesystem::path(dxt_data_basedir);
+  return boost::filesystem::path(DXT_DATA_BASEDIR);
 }
 
 std::string spe10_model1_filename()

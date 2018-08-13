@@ -49,10 +49,8 @@
 /* Define to the revision of dune-xt-data */
 #define DUNE_XT_DATA_VERSION_REVISION @DUNE_XT_DATA_VERSION_REVISION@
 
-#include <string>
-namespace {
-  static const std::string dxt_data_basedir{"@DXT_DATA_BASEDIR@"};
-}
+#define DXT_DATA_BASEDIR "@DXT_DATA_BASEDIR@"
+
 /* end dune-xt-data
    Everything below here will be overwritten
 */
