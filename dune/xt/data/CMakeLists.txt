@@ -23,6 +23,7 @@ add_custom_target(unpack_data
         ${DXT_DATA_BASEDIR}/spe_phi.dat
         ${DXT_DATA_BASEDIR}/perm_case1.dat)
 
-dune_add_library(dxt_data 
+dune_add_library(dxt_data
                 paths.cc)
 add_subdirectory(matrix_exponential)
+add_subdirectory(lebedev)

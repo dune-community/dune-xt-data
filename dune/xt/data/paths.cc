@@ -11,11 +11,11 @@ boost::filesystem::path basedir()
     return boost::filesystem::path(dxt_data_basedir);
 }
 
-static inline std::string spe10_model1_filename()
+std::string spe10_model1_filename()
 {
     return (basedir() / "perm_case1.dat").string();
 }
-static inline std::string spe10_model2_filename()
+std::string spe10_model2_filename()
 {
     return (basedir() / "spe_perm.dat").string();
 }
