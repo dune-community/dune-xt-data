@@ -1,3 +1,6 @@
+#ifndef DUNE_XT_DATA_DUNE_XT_DATA_MATRIX_EXPONENTIAL_R8LIB_HPP
+#define DUNE_XT_DATA_DUNE_XT_DATA_MATRIX_EXPONENTIAL_R8LIB_HPP
+
 void gamma_values ( int &n_data, double &x, double &fx );
 void gamma_log_values ( int &n_data, double &x, double &fx );
 int i4_log_10 ( int i );
@@ -165,9 +168,9 @@ double **r8cmat_zeros_new ( int m, int n );
 double r8int_to_r8int ( double rmin, double rmax, double r, double r2min,
   double r2max );
 int r8int_to_i4int ( double rmin, double rmax, double r, int imin, int imax );
-void r8mat_add ( int m, int n, double alpha, double a[], double beta, 
+void r8mat_add ( int m, int n, double alpha, double a[], double beta,
   double b[], double c[] );
-double *r8mat_add_new ( int m, int n, double alpha, double a[], double beta, 
+double *r8mat_add_new ( int m, int n, double alpha, double a[], double beta,
   double b[] );
 double r8mat_amax ( int m, int n, double a[] );
 double *r8mat_border_add ( int m, int n, double table[] );
@@ -299,7 +302,7 @@ double *r8mat_uniform_01_new ( int m, int n, int &seed );
 double *r8mat_uniform_ab_new ( int m, int n, double a, double b, int &seed );
 void r8mat_uniform_ab ( int m, int n, double a[], double b[], int &seed, double r[] );
 double *r8mat_uniform_ab_new ( int m, int n, double a[], double b[], int &seed );
-void r8mat_uniform_abvec ( int m, int n, double a[], double b[], int &seed, 
+void r8mat_uniform_abvec ( int m, int n, double a[], double b[], int &seed,
   double r[] );
 double *r8mat_uniform_abvec_new ( int m, int n, double a[], double b[], int &seed );
 double *r8row_uniform_new ( int m, int n, double a[], double b[], int &seed );
@@ -432,7 +435,7 @@ void r8vec_even2 ( int maxval, int nfill[], int nold, double xold[],
 double r8vec_even2_select ( int n, double xlo, double xhi, int ival );
 void r8vec_even3 ( int nold, int nval, double xold[], double xval[] );
 double *r8vec_expand_linear ( int n, double x[], int fat );
-double *r8vec_expand_linear2 ( int n, double x[], int before, int fat, 
+double *r8vec_expand_linear2 ( int n, double x[], int before, int fat,
   int after );
 void r8vec_fill ( int n, double value, double x[] );
 double *r8vec_fill_new ( int n, double value );
@@ -490,7 +493,7 @@ int r8vec_max_index ( int n, double a[] );
 double r8vec_mean ( int n, double x[] );
 double r8vec_mean_geometric ( int n, double x[] );
 double r8vec_median ( int n, double a[] );
-void r8vec_mesh_2d ( int nx, int ny, double xvec[], double yvec[], 
+void r8vec_mesh_2d ( int nx, int ny, double xvec[], double yvec[],
   double xmat[], double ymat[] );
 double *r8vec_midspace_new ( int n, double a_lo, double a_hi );
 double r8vec_min ( int n, double r8vec[] );
@@ -607,3 +610,5 @@ double *roots_to_r8poly ( int n, double x[] );
 int s_len_trim ( string s );
 void sort_heap_external ( int n, int &indx, int &i, int &j, int isgn );
 void timestamp ( );
+
+#endif DUNE_XT_DATA_DUNE_XT_DATA_MATRIX_EXPONENTIAL_R8LIB_HPP

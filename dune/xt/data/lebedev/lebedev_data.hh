@@ -1,3 +1,6 @@
+#ifndef DUNE_XT_DATA_DUNE_XT_DATA_LEBEDEV_LEBEDEV_DATA_HH
+#define DUNE_XT_DATA_DUNE_XT_DATA_LEBEDEV_LEBEDEV_DATA_HH
+
 #include <array>
 #include <utility>
 #include <vector>
@@ -21,3 +24,5 @@ struct LebedevData
 } // namespace Hyperbolic
 } // namespace GDT
 } // namespace Dune
+
+#endif // DUNE_XT_DATA_DUNE_XT_DATA_LEBEDEV_LEBEDEV_DATA_HH
