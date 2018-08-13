@@ -23,18 +23,18 @@ using namespace boost::filesystem;
 
 void test_file(std::string fn)
 {
-    path filepath{fn};
+  path filepath{fn};
 
-    EXPECT_TRUE(exists(filepath));
-    EXPECT_TRUE(is_regular_file(filepath));
-    EXPECT_GE(file_size(filepath), 1);
-    std::string content;
-    load_string_file(filepath, content);
+  EXPECT_TRUE(exists(filepath));
+  EXPECT_TRUE(is_regular_file(filepath));
+  EXPECT_GE(file_size(filepath), 1);
+  std::string content;
+  load_string_file(filepath, content);
 }
 
 GTEST_TEST(paths, main)
 {
-    using namespace Dune::XT::Data;
-    test_file(spe10_model1_filename());
-    test_file(spe10_model2_filename());
+  using namespace Dune::XT::Data;
+  test_file(spe10_model1_filename());
+  test_file(spe10_model2_filename());
 }

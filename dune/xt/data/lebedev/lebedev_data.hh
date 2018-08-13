@@ -9,10 +9,10 @@ namespace Problems {
 namespace internal {
 
 
-template<size_t order>
+template <size_t order>
 struct LebedevData
 {
-	  static void get(std::vector<std::pair<std::array<double,3>, double>>& quad_rule);
+  static void get(std::vector<std::pair<std::array<double, 3>, double>>& quad_rule);
 };
 
 
