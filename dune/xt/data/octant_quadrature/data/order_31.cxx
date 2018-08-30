@@ -11,8 +11,6 @@
 
 namespace Dune {
 namespace GDT {
-namespace Hyperbolic {
-namespace Problems {
 namespace internal {
 
 
@@ -49,7 +47,5 @@ std::vector<std::vector<std::vector<double>>> OctantQuadratureData<31>::get()
 
 
 } // namespace internal
-} // namespace Problems
-} // namespace Hyperbolic
 } // namespace GDT
 } // namespace Dune
