@@ -611,4 +611,4 @@ int s_len_trim ( string s );
 void sort_heap_external ( int n, int &indx, int &i, int &j, int isgn );
 void timestamp ( );
 
-#endif DUNE_XT_DATA_DUNE_XT_DATA_MATRIX_EXPONENTIAL_R8LIB_HPP
+#endif //DUNE_XT_DATA_DUNE_XT_DATA_MATRIX_EXPONENTIAL_R8LIB_HPP

@@ -1,3 +1,4 @@
+#include <dune/xt/common/disable_warnings.hh>
 # include <cstdlib>
 # include <iostream>
 # include <fstream>
@@ -378,3 +379,4 @@ double *r8mat_expm3 ( int n, double a[] )
 //
   return e;
 }
+#include <dune/xt/common/reenable_warnings.hh>
