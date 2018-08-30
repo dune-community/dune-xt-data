@@ -7,6 +7,7 @@
 #include <complex>
 #include <ctime>
 #include <cstring>
+#include <limits>
 
 using namespace std;
 
@@ -71,7 +72,10 @@ complex<double>* c8mat_expm1(int n, complex<double> a[])
 
   a_norm = c8mat_norm_li(n, n, a2);
 
-  ee = (int)(r8_log_2(a_norm)) + 1;
+  const auto ee_r8 = r8_log_2(a_norm) + 1.;
+  // Avoid undefined behavior
+  const int int_min = numeric_limits<int>::min();
+  ee = (ee_r8 < int_min ? int_min : static_cast<int>(ee_r8));
 
   s = i4_max(0, ee + 1);
 
@@ -182,7 +186,10 @@ double* r8mat_expm1(int n, double a[])
 
   a_norm = r8mat_norm_li(n, n, a2);
 
-  ee = (int)(r8_log_2(a_norm)) + 1;
+  const auto ee_r8 = r8_log_2(a_norm) + 1.;
+  // Avoid undefined behavior
+  const int int_min = numeric_limits<int>::min();
+  ee = (ee_r8 < int_min ? int_min : static_cast<int>(ee_r8));
 
   s = i4_max(0, ee + 1);
 
