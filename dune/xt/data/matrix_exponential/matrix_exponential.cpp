@@ -1,22 +1,22 @@
 #include <dune/xt/common/disable_warnings.hh>
-# include <cstdlib>
-# include <iostream>
-# include <fstream>
-# include <iomanip>
-# include <cmath>
-# include <complex>
-# include <ctime>
-# include <cstring>
+#include <cstdlib>
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+#include <complex>
+#include <ctime>
+#include <cstring>
 
 using namespace std;
 
-# include "matrix_exponential.hpp"
-# include "c8lib.hpp"
-# include "r8lib.hpp"
+#include "matrix_exponential.hpp"
+#include "c8lib.hpp"
+#include "r8lib.hpp"
 
 //****************************************************************************80
 
-complex <double> *c8mat_expm1 ( int n, complex <double> a[] )
+complex<double>* c8mat_expm1(int n, complex<double> a[])
 
 //****************************************************************************80
 //
@@ -53,11 +53,11 @@ complex <double> *c8mat_expm1 ( int n, complex <double> a[] )
 //    Output, complex <double> C8MAT_EXPM1[N*N], the estimate for exp(A).
 //
 {
-  complex <double> *a2;
+  complex<double>* a2;
   double a_norm;
   double c;
-  complex <double> *d;
-  complex <double> *e;
+  complex<double>* d;
+  complex<double>* e;
   int ee;
   int k;
   const double one = 1.0;
@@ -65,74 +65,69 @@ complex <double> *c8mat_expm1 ( int n, complex <double> a[] )
   const int q = 6;
   int s;
   double t;
-  complex <double> *x;
+  complex<double>* x;
 
-  a2 = c8mat_copy_new ( n, n, a );
+  a2 = c8mat_copy_new(n, n, a);
 
-  a_norm = c8mat_norm_li ( n, n, a2 );
+  a_norm = c8mat_norm_li(n, n, a2);
 
-  ee = ( int ) ( r8_log_2 ( a_norm ) ) + 1;
-  
-  s = i4_max ( 0, ee + 1 );
+  ee = (int)(r8_log_2(a_norm)) + 1;
 
-  t = 1.0 / pow ( 2.0, s );
+  s = i4_max(0, ee + 1);
 
-  c8mat_scale_r8 ( n, n, t, a2 );
+  t = 1.0 / pow(2.0, s);
 
-  x = c8mat_copy_new ( n, n, a2 );
+  c8mat_scale_r8(n, n, t, a2);
+
+  x = c8mat_copy_new(n, n, a2);
 
   c = 0.5;
 
-  e = c8mat_identity_new ( n );
+  e = c8mat_identity_new(n);
 
-  c8mat_add_r8 ( n, n, one, e, c, a2, e );
+  c8mat_add_r8(n, n, one, e, c, a2, e);
 
-  d = c8mat_identity_new ( n );
+  d = c8mat_identity_new(n);
 
-  c8mat_add_r8 ( n, n, one, d, -c, a2, d );
+  c8mat_add_r8(n, n, one, d, -c, a2, d);
 
   p = 1;
 
-  for ( k = 2; k <= q; k++ )
-  {
-    c = c * ( double ) ( q - k + 1 ) / ( double ) ( k * ( 2 * q - k + 1 ) );
+  for (k = 2; k <= q; k++) {
+    c = c * (double)(q - k + 1) / (double)(k * (2 * q - k + 1));
 
-    c8mat_mm ( n, n, n, a2, x, x );
+    c8mat_mm(n, n, n, a2, x, x);
 
-    c8mat_add_r8 ( n, n, c, x, one, e, e );
+    c8mat_add_r8(n, n, c, x, one, e, e);
 
-    if ( p )
-    {
-      c8mat_add_r8 ( n, n, c, x, one, d, d );
-    }
-    else
-    {
-      c8mat_add_r8 ( n, n, -c, x, one, d, d );
+    if (p) {
+      c8mat_add_r8(n, n, c, x, one, d, d);
+    } else {
+      c8mat_add_r8(n, n, -c, x, one, d, d);
     }
 
     p = !p;
   }
-//
-//  E -> inverse(D) * E
-//
-  c8mat_minvm ( n, n, d, e, e );
-//
-//  E -> E^(2*S)
-//
-  for ( k = 1; k <= s; k++ )
-  {
-    c8mat_mm ( n, n, n, e, e, e );
+  //
+  //  E -> inverse(D) * E
+  //
+  c8mat_minvm(n, n, d, e, e);
+  //
+  //  E -> E^(2*S)
+  //
+  for (k = 1; k <= s; k++) {
+    c8mat_mm(n, n, n, e, e, e);
   }
 
-  delete [] a2;
-  delete [] d;
-  delete [] x;
+  delete[] a2;
+  delete[] d;
+  delete[] x;
 
   return e;
 }
 //****************************************************************************80
 
-double *r8mat_expm1 ( int n, double a[] )
+double* r8mat_expm1(int n, double a[])
 
 //****************************************************************************80
 //
@@ -169,11 +164,11 @@ double *r8mat_expm1 ( int n, double a[] )
 //    Output, double R8MAT_EXPM1[N*N], the estimate for exp(A).
 //
 {
-  double *a2;
+  double* a2;
   double a_norm;
   double c;
-  double *d;
-  double *e;
+  double* d;
+  double* e;
   int ee;
   int k;
   const double one = 1.0;
@@ -181,74 +176,69 @@ double *r8mat_expm1 ( int n, double a[] )
   const int q = 6;
   int s;
   double t;
-  double *x;
+  double* x;
 
-  a2 = r8mat_copy_new ( n, n, a );
+  a2 = r8mat_copy_new(n, n, a);
 
-  a_norm = r8mat_norm_li ( n, n, a2 );
+  a_norm = r8mat_norm_li(n, n, a2);
 
-  ee = ( int ) ( r8_log_2 ( a_norm ) ) + 1;
-  
-  s = i4_max ( 0, ee + 1 );
+  ee = (int)(r8_log_2(a_norm)) + 1;
 
-  t = 1.0 / pow ( 2.0, s );
+  s = i4_max(0, ee + 1);
 
-  r8mat_scale ( n, n, t, a2 );
+  t = 1.0 / pow(2.0, s);
 
-  x = r8mat_copy_new ( n, n, a2 );
+  r8mat_scale(n, n, t, a2);
+
+  x = r8mat_copy_new(n, n, a2);
 
   c = 0.5;
 
-  e = r8mat_identity_new ( n );
+  e = r8mat_identity_new(n);
 
-  r8mat_add ( n, n, one, e, c, a2, e );
+  r8mat_add(n, n, one, e, c, a2, e);
 
-  d = r8mat_identity_new ( n );
+  d = r8mat_identity_new(n);
 
-  r8mat_add ( n, n, one, d, -c, a2, d );
+  r8mat_add(n, n, one, d, -c, a2, d);
 
   p = 1;
 
-  for ( k = 2; k <= q; k++ )
-  {
-    c = c * ( double ) ( q - k + 1 ) / ( double ) ( k * ( 2 * q - k + 1 ) );
+  for (k = 2; k <= q; k++) {
+    c = c * (double)(q - k + 1) / (double)(k * (2 * q - k + 1));
 
-    r8mat_mm ( n, n, n, a2, x, x );
+    r8mat_mm(n, n, n, a2, x, x);
 
-    r8mat_add ( n, n, c, x, one, e, e );
+    r8mat_add(n, n, c, x, one, e, e);
 
-    if ( p )
-    {
-      r8mat_add ( n, n, c, x, one, d, d );
-    }
-    else
-    {
-      r8mat_add ( n, n, -c, x, one, d, d );
+    if (p) {
+      r8mat_add(n, n, c, x, one, d, d);
+    } else {
+      r8mat_add(n, n, -c, x, one, d, d);
     }
 
     p = !p;
   }
-//
-//  E -> inverse(D) * E
-//
-  r8mat_minvm ( n, n, d, e, e );
-//
-//  E -> E^(2*S)
-//
-  for ( k = 1; k <= s; k++ )
-  {
-    r8mat_mm ( n, n, n, e, e, e );
+  //
+  //  E -> inverse(D) * E
+  //
+  r8mat_minvm(n, n, d, e, e);
+  //
+  //  E -> E^(2*S)
+  //
+  for (k = 1; k <= s; k++) {
+    r8mat_mm(n, n, n, e, e, e);
   }
 
-  delete [] a2;
-  delete [] d;
-  delete [] x;
+  delete[] a2;
+  delete[] d;
+  delete[] x;
 
   return e;
 }
 //****************************************************************************80
 
-double *r8mat_expm2 ( int n, double a[] )
+double* r8mat_expm2(int n, double a[])
 
 //****************************************************************************80
 //
@@ -293,38 +283,37 @@ double *r8mat_expm2 ( int n, double a[] )
 //    Output, double R8MAT_EXPM2[N*N], the estimate for exp(A).
 //
 {
-  double *e;
-  double *f;
+  double* e;
+  double* f;
   int k;
   const double one = 1.0;
   double s;
 
-  e = r8mat_zeros_new ( n, n );
+  e = r8mat_zeros_new(n, n);
 
-  f = r8mat_identity_new ( n );
+  f = r8mat_identity_new(n);
 
   k = 1;
 
-  while ( r8mat_significant ( n, n, e, f ) )
-  {
-    r8mat_add ( n, n, one, e, one, f, e );
+  while (r8mat_significant(n, n, e, f)) {
+    r8mat_add(n, n, one, e, one, f, e);
 
-    r8mat_mm ( n, n, n, a, f, f );
+    r8mat_mm(n, n, n, a, f, f);
 
-    s = 1.0 / ( double ) ( k );
+    s = 1.0 / (double)(k);
 
-    r8mat_scale ( n, n, s, f );
+    r8mat_scale(n, n, s, f);
 
     k = k + 1;
   }
 
-  delete [] f;
+  delete[] f;
 
   return e;
 }
 //****************************************************************************80
 
-double *r8mat_expm3 ( int n, double a[] )
+double* r8mat_expm3(int n, double a[])
 
 //****************************************************************************80
 //
@@ -372,11 +361,11 @@ double *r8mat_expm3 ( int n, double a[] )
 //    Output, double R8MAT_EXPM3[N*N], the estimate for exp(A).
 //
 {
-  double *e = NULL;
-//
-//  [ V, D ] = eig ( A );
-//  E = V * diag ( exp ( diag ( D ) ) ) / V;
-//
+  double* e = NULL;
+  //
+  //  [ V, D ] = eig ( A );
+  //  E = V * diag ( exp ( diag ( D ) ) ) / V;
+  //
   return e;
 }
 #include <dune/xt/common/reenable_warnings.hh>

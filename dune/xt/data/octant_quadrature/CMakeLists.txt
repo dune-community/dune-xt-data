@@ -11,8 +11,8 @@
 
 dune_add_library(octantquadraturedata
                  APPEND
-	         data/order_2.cxx
-	         data/order_3.cxx
+                 data/order_2.cxx
+                 data/order_3.cxx
                  data/order_4.cxx
                  data/order_5.cxx
                  data/order_6.cxx
