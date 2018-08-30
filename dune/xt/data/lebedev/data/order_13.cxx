@@ -11,8 +11,6 @@
 
 namespace Dune {
 namespace GDT {
-namespace Hyperbolic {
-namespace Problems {
 namespace internal {
 
 
@@ -97,7 +95,5 @@ void LebedevData<13>::get(std::vector<std::pair<std::array<double, 3>, double>>&
 
 
 } // namespace internal
-} // namespace Problems
-} // namespace Hyperbolic
 } // namespace GDT
 } // namespace Dune

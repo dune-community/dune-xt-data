@@ -7,8 +7,6 @@
 
 namespace Dune {
 namespace GDT {
-namespace Hyperbolic {
-namespace Problems {
 namespace internal {
 
 
@@ -20,8 +18,6 @@ struct LebedevData
 
 
 } // namespace internal
-} // namespace Problems
-} // namespace Hyperbolic
 } // namespace GDT
 } // namespace Dune
 

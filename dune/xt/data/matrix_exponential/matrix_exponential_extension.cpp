@@ -1,14 +1,14 @@
-# include <complex>
-# include <string>
+#include <complex>
+#include <string>
 
 using namespace std;
 
-# include "matrix_exponential_extension.hpp"
-# include "matrix_exponential.hpp"
-# include "c8lib.hpp"
-# include "r8lib.hpp"
+#include "matrix_exponential_extension.hpp"
+#include "matrix_exponential.hpp"
+#include "c8lib.hpp"
+#include "r8lib.hpp"
 
-double *r8mat_expm_integral ( int n, double a[], double t)
+double* r8mat_expm_integral(int n, double a[], double t)
 
 //****************************************************************************80
 //
@@ -46,41 +46,39 @@ double *r8mat_expm_integral ( int n, double a[], double t)
 //    Output, double R8MAT_EXPM_INTEGRAL[N*N], the estimate for \int_0^T exp ( A t ) dt.
 //
 {
-  double *a2;
-  double *e;
-  double *f;
+  double* a2;
+  double* e;
+  double* f;
   int k;
   const double one = 1.0;
   double s;
 
-  a2 = r8mat_copy_new ( n, n, a );
+  a2 = r8mat_copy_new(n, n, a);
 
-  r8mat_scale (n, n, t, a2);
+  r8mat_scale(n, n, t, a2);
 
-  e = r8mat_zeros_new ( n, n );
+  e = r8mat_zeros_new(n, n);
 
-  f = r8mat_identity_new ( n );
+  f = r8mat_identity_new(n);
 
   k = 2;
 
-  while ( r8mat_significant ( n, n, e, f ) )
-  {
-    r8mat_add ( n, n, one, e, one, f, e );
+  while (r8mat_significant(n, n, e, f)) {
+    r8mat_add(n, n, one, e, one, f, e);
 
-    r8mat_mm ( n, n, n, a2, f, f );
+    r8mat_mm(n, n, n, a2, f, f);
 
-    s = 1.0 / ( double ) ( k );
+    s = 1.0 / (double)(k);
 
-    r8mat_scale ( n, n, s, f );
+    r8mat_scale(n, n, s, f);
 
     k = k + 1;
   }
 
   r8mat_scale(n, n, t, e);
 
-  delete [] a2;
-  delete [] f;
+  delete[] a2;
+  delete[] f;
 
   return e;
 }
-
