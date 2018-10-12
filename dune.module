@@ -16,7 +16,7 @@
 
 #Name of the module
 Module: dune-xt-data
-Version: 0.1
+Version: 18.11-dev
 Maintainer: rene.milk@wwu.de
 #depending on
-Depends: dune-xt-common
+Depends: dune-xt-common (>=18.11)
