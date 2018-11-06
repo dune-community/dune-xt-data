@@ -20,4 +20,4 @@ Module: dune-xt-data
 Version: 18.11-dev
 Maintainer: rene.milk@wwu.de
 #depending on
-Depends: dune-xt-common (>=18.11)
+Depends: dune-xt-common (>=18.11) dune-pybindxi
