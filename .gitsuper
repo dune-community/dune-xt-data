@@ -14,7 +14,7 @@ status = 1a3bcab04b011a5d6e44f9983cae6ff89fa695e8 bin (heads/master)
 	 26cc8cb4161a3a51002ab2a81b8c81d2c951ee79 dune-testtools (heads/dune_xt)
 	 8fe883e99c58c9f0c2f92457d546a0ac9f5a9bf9 dune-uggrid (v2.5.2-1-g8fe883e9)
 	+bbeae013f1a82dd66179ff1b27f3ac079f5f448f dune-xt-common (heads/master)
-	+54dec750ddb36ca4ba95e0eddcb19140727270ed dune-xt-data (heads/namechange)
+	+43543ec15796d5ed0bb636b7ffb15da86e363e9c dune-xt-data (heads/namechange)
 	+93e975ee2a4d8b8e2d150198590b8dbf4dbd0262 dune-xt-functions (heads/namechange)
 	+e87b1e6cc177072e98079f516fabbc479da28f43 dune-xt-grid (heads/namechange)
 	+772b71f8f23efb42943292ee499a84ec004fec35 dune-xt-la (heads/namechange)
@@ -94,7 +94,7 @@ commit = bbeae013f1a82dd66179ff1b27f3ac079f5f448f
 [submodule.dune-xt-data]
 remote = https://github.com/dune-community/dune-xt-data
 status = 2424627f0ad5de7e4aaa5e7f48bc2a02414d95a1 .vcsetup (heads/master)
-commit = 54dec750ddb36ca4ba95e0eddcb19140727270ed
+commit = 43543ec15796d5ed0bb636b7ffb15da86e363e9c
 
 [submodule.dune-xt-functions]
 remote = git@github.com:dune-community/dune-xt-functions.git
