@@ -97,6 +97,6 @@ std::vector<std::vector<double>> GaussLobattoData<73>::get()
 
 
 } // namespace internal
-} // Data
+} // namespace Data
 } // namespace XT
 } // namespace Dune
