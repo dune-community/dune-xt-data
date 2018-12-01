@@ -2262,7 +2262,7 @@ complex<double>* c8mat_copy_new(int m, int n, complex<double> a1[])
   int i;
   int j;
 
-  a2 = new complex<double>[ m * n ];
+  a2 = new complex<double>[m * n];
 
   for (j = 0; j < n; j++) {
     for (i = 0; i < m; i++) {
@@ -2451,7 +2451,7 @@ complex<double>* c8mat_fss_new(int n, complex<double> a[], int nb, complex<doubl
   complex<double> t;
   complex<double>* x;
 
-  x = new complex<double>[ n * nb ];
+  x = new complex<double>[n * nb];
 
   for (j = 0; j < nb; j++) {
     for (i = 0; i < n; i++) {
@@ -2565,7 +2565,7 @@ complex<double>* c8mat_identity_new(int n)
   int i;
   int j;
 
-  a = new complex<double>[ n * n ];
+  a = new complex<double>[n * n];
 
   for (j = 0; j < n; j++) {
     for (i = 0; i < n; i++) {
@@ -2611,7 +2611,7 @@ complex<double>* c8mat_indicator_new(int m, int n)
   int i;
   int j;
 
-  a = new complex<double>[ m * n ];
+  a = new complex<double>[m * n];
 
   for (j = 0; j < n; j++) {
     for (i = 0; i < m; i++) {
@@ -2758,7 +2758,7 @@ void c8mat_mm(int n1, int n2, int n3, complex<double> a[], complex<double> b[], 
   int j;
   int k;
 
-  c1 = new complex<double>[ n1 * n3 ];
+  c1 = new complex<double>[n1 * n3];
 
   for (i = 0; i < n1; i++) {
     for (j = 0; j < n3; j++) {
@@ -2819,7 +2819,7 @@ complex<double>* c8mat_mm_new(int n1, int n2, int n3, complex<double> a[], compl
   int j;
   int k;
 
-  c = new complex<double>[ n1 * n3 ];
+  c = new complex<double>[n1 * n3];
 
   for (i = 0; i < n1; i++) {
     for (j = 0; j < n3; j++) {
@@ -3433,7 +3433,7 @@ complex<double>* c8mat_uniform_01_new(int m, int n, int& seed)
   const double r8_pi = 3.141592653589793;
   double theta;
 
-  c = new complex<double>[ m * n ];
+  c = new complex<double>[m * n];
 
   for (j = 0; j < n; j++) {
     for (i = 0; i < m; i++) {
@@ -3500,7 +3500,7 @@ complex<double>* c8mat_zero_new(int m, int n)
   int i;
   int j;
 
-  a = new complex<double>[ m * n ];
+  a = new complex<double>[m * n];
 
   for (j = 0; j < n; j++) {
     for (i = 0; i < m; i++) {
@@ -3581,7 +3581,7 @@ complex<double>* c8vec_copy_new(int n, complex<double> a1[])
   complex<double>* a2;
   int i;
 
-  a2 = new complex<double>[ n ];
+  a2 = new complex<double>[n];
 
   for (i = 0; i < n; i++) {
     a2[i] = a1[i];
@@ -3626,7 +3626,7 @@ complex<double>* c8vec_indicator_new(int n)
   complex<double>* a;
   int i;
 
-  a = new complex<double>[ n ];
+  a = new complex<double>[n];
 
   for (i = 0; i < n; i++) {
     a[i] = complex<double>(i + 1, -i - 1);
@@ -4263,7 +4263,7 @@ complex<double>* c8vec_spiral_new(int n, int m, complex<double> c1, complex<doub
   double t2;
   double ti;
 
-  c = new complex<double>[ n ];
+  c = new complex<double>[n];
 
   r1 = c8_abs(c1);
   r2 = c8_abs(c2);
@@ -4346,7 +4346,7 @@ complex<double>* c8vec_uniform_01_new(int n, int& seed)
   const double r8_pi = 3.141592653589793;
   double theta;
 
-  c = new complex<double>[ n ];
+  c = new complex<double>[n];
 
   for (i = 0; i < n; i++) {
     k = seed / 127773;
@@ -4416,7 +4416,7 @@ complex<double>* c8vec_unity_new(int n)
   const double r8_pi = 3.141592653589793;
   double theta;
 
-  a = new complex<double>[ n ];
+  a = new complex<double>[n];
 
   for (i = 0; i < n; i++) {
     theta = r8_pi * (double)(2 * i) / (double)(n);
