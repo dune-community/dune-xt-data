@@ -37,10 +37,10 @@ set(DXT_DATA_BASEDIR "${CMAKE_CURRENT_BINARY_DIR}/data")
 dune_project()
 dune_enable_all_packages(INCLUDE_DIRS ${dune-xt-data_SOURCE_DIR}/dune MODULE_LIBRARIES dxt_data)
 
-include(DuneXTInstallPythonPackage)
+include(DunePybindxiInstallPythonPackage)
 # this symlinks all files in python/ to the binary dir and install into the virtualenv from there thereby making the
 # compiled extensions directly usable from the venv
-dune_python_install_package(PATH python)
+dune_pybindxi_install_python_package(PATH python)
 dxt_add_make_dependent_bindings(dune-xt-common)
 include_dependent_binary_python_dirs()
 # do not change order here
