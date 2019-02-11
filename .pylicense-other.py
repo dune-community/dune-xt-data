@@ -19,8 +19,8 @@ prefix = '#'
 lead_in = '# ~~~'
 lead_out = '# ~~~'
 
-include_patterns = ('*.txt', '*.cmake', '*.py', '*.sh', '*.bash', '*.dgf', '*.msh', '*.gdb', '*.cfg',
-                    '*.travis.*', '*.gitignore', '*.mailmap', '*.gitattributes', '*gitignore-*', '*stamp-vc',
-                    '*dune.module', '*Doxylocal', '*.clang-format', '*COPYING-CMAKE-SCRIPTS', '*README',
-                    '*LICENSE', '*mainpage', '*switch-build_dir', '*dune-xt-data.pc.in', '*CMakeLists.txt')
+include_patterns = ('*.txt', '*.cmake', '*.py', '*.sh', '*.bash', '*.dgf', '*.msh', '*.gdb', '*.cfg', '*.travis.*',
+                    '*.gitignore', '*.mailmap', '*.gitattributes', '*gitignore-*', '*stamp-vc', '*dune.module',
+                    '*Doxylocal', '*.clang-format', '*COPYING-CMAKE-SCRIPTS', '*README', '*LICENSE', '*mainpage',
+                    '*switch-build_dir', '*dune-xt-data.pc.in', '*CMakeLists.txt')
 exclude_patterns = ('*config.h.cmake', '*.gz', '*.vcsetup*', 'FindEigen3.cmake', '*builder_definitions.cmake')

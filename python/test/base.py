@@ -20,7 +20,7 @@ def test_load_all():
 
 def test_load_files():
     from dune.xt.data import paths
-    funcs = ['spe10_model{}_filename'.format(i) for i in (1,2)]
+    funcs = ['spe10_model{}_filename'.format(i) for i in (1, 2)]
     for f in funcs:
         fn = getattr(paths, f)()
         open(fn).read()
