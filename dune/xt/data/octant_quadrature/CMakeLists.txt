@@ -50,4 +50,34 @@ dune_add_library(octantquadraturedata
                  data/order_37.cxx
                  data/order_38.cxx
                  data/order_39.cxx
-                 data/order_40.cxx)
+                 data/order_40.cxx
+                 data/order_41.cxx
+                 data/order_42.cxx
+                 data/order_43.cxx
+                 data/order_44.cxx
+                 data/order_45.cxx
+                 data/order_46.cxx
+                 data/order_47.cxx
+                 data/order_48.cxx
+                 data/order_49.cxx
+                 data/order_50.cxx
+                 data/order_51.cxx
+                 data/order_52.cxx
+                 data/order_53.cxx
+                 data/order_54.cxx
+                 data/order_55.cxx
+                 data/order_56.cxx
+                 data/order_57.cxx
+                 data/order_58.cxx
+                 data/order_59.cxx
+                 data/order_60.cxx
+                 data/order_61.cxx
+                 data/order_62.cxx
+                 data/order_63.cxx
+                 data/order_64.cxx
+                 data/order_65.cxx
+                 data/order_66.cxx
+                 data/order_67.cxx
+                 data/order_68.cxx
+                 data/order_69.cxx
+                 data/order_70.cxx)
