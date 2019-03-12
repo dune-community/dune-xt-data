@@ -15,8 +15,8 @@
 #include <vector>
 
 namespace Dune {
-namespace GDT {
-namespace internal {
+namespace XT {
+namespace Data {
 
 
 template <size_t order>
@@ -35,8 +35,8 @@ struct OctantQuadratureData
 };
 
 
-} // namespace internal
-} // namespace GDT
+} // namespace Data
+} // namespace XT
 } // namespace Dune
 
 #endif // DUNE_XT_DATA_DUNE_XT_DATA_OCTANT_QUADRATURE_OCTANT_QUADRATURE_DATA_HH
