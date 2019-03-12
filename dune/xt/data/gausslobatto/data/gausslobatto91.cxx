@@ -14,7 +14,6 @@
 namespace Dune {
 namespace XT {
 namespace Data {
-namespace internal {
 
 
 template <>
@@ -114,7 +113,6 @@ std::vector<std::vector<double>> GaussLobattoData<91>::get()
 }
 
 
-} // namespace internal
 } // namespace Data
 } // namespace XT
 } // namespace Dune

@@ -10,8 +10,8 @@
 #include "../octant_quadrature_data.hh"
 
 namespace Dune {
-namespace GDT {
-namespace internal {
+namespace XT {
+namespace Data {
 
 
 template <>
@@ -593,6 +593,6 @@ std::vector<std::vector<std::vector<double>>> OctantQuadratureData<20>::get()
 }
 
 
-} // namespace internal
-} // namespace GDT
+} // namespace Data
+} // namespace XT
 } // namespace Dune

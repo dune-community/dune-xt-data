@@ -13,8 +13,8 @@
 #include "../lebedev_data.hh"
 
 namespace Dune {
-namespace GDT {
-namespace internal {
+namespace XT {
+namespace Data {
 
 
 template <>
@@ -5833,6 +5833,6 @@ void LebedevData<131>::get(std::vector<std::pair<std::array<double, 3>, double>>
 }
 
 
-} // namespace internal
-} // namespace GDT
+} // namespace Data
+} // namespace XT
 } // namespace Dune

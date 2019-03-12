@@ -17,7 +17,6 @@
 namespace Dune {
 namespace XT {
 namespace Data {
-namespace internal {
 
 
 template <size_t numQuadPoints>
@@ -28,7 +27,6 @@ struct GaussLobattoData
 };
 
 
-} // namespace internal
 } // namespace Data
 } // namespace XT
 } // namespace Dune
