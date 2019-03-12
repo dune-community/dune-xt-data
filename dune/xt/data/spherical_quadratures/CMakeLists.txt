@@ -6,15 +6,9 @@
 #      or  GPL-2.0+ (http://opensource.org/licenses/gpl-license)
 #          with "runtime exception" (http://www.dune-project.org/license.html)
 # Authors:
-#   René Fritze (2018)
+#   René Fritze    (2018)
+#   Tobias Leibner (2018)
 # ~~~
 
-enable_testing()
-
-begin_testcases(dxt_data)
-end_testcases()
-foreach(test ${dxt_test_binaries})
-  if(TARGET test)
-    target_link_libraries(${test} dxt_data)
-  endif(TARGET test)
-endforeach(test ${dxt_test_binaries})
+add_subdirectory(lebedev)
+add_subdirectory(octant_quadrature)

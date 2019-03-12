@@ -34,8 +34,7 @@ dune_library_add_sources(dxt_data SOURCES paths.cc)
 # make sure data is unpacked for downstream modules
 add_dependencies(dxt_data unpack_data)
 
-add_subdirectory(gausslobatto)
-add_subdirectory(lebedev)
+add_subdirectory(quadratures)
+add_subdirectory(spherical_quadratures)
 add_subdirectory(matrix_exponential)
-add_subdirectory(octant_quadrature)
 add_subdirectory(test)

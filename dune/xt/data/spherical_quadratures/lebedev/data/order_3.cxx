@@ -8,7 +8,7 @@
 //   René Fritze    (2018)
 //   Tobias Leibner (2018)
 //
-// This file is part of the dune-gdt project:
+// This file is part of the dune-xt-data project:
 
 #include "../lebedev_data.hh"
 
