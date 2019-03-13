@@ -34,13 +34,18 @@ class OctantQuadratures
 {
 public:
   using QuadratureType = Dune::QuadratureRule<FieldType, 3>;
+  static size_t max_order()
+  {
+    return 70;
+  }
+
   static std::vector<QuadratureType> get(const size_t requested_order)
   {
     size_t order = requested_order;
-    if (requested_order > 40) {
+    if (requested_order > max_order()) {
       std::cerr << "Warning: Requested octant quadratures with order " << requested_order
-                << " are not available, using highest available order " << 40 << "." << std::endl;
-      order = 40;
+                << " are not available, using highest available order " << max_order() << "." << std::endl;
+      order = max_order();
     }
     if (order < 2)
       order = 2;
@@ -163,6 +168,96 @@ public:
       case 40:
         data_vector = XT::Data::OctantQuadratureData<40>::get();
         break;
+      case 41:
+        data_vector = XT::Data::OctantQuadratureData<41>::get();
+        break;
+      case 42:
+        data_vector = XT::Data::OctantQuadratureData<42>::get();
+        break;
+      case 43:
+        data_vector = XT::Data::OctantQuadratureData<43>::get();
+        break;
+      case 44:
+        data_vector = XT::Data::OctantQuadratureData<44>::get();
+        break;
+      case 45:
+        data_vector = XT::Data::OctantQuadratureData<45>::get();
+        break;
+      case 46:
+        data_vector = XT::Data::OctantQuadratureData<46>::get();
+        break;
+      case 47:
+        data_vector = XT::Data::OctantQuadratureData<47>::get();
+        break;
+      case 48:
+        data_vector = XT::Data::OctantQuadratureData<48>::get();
+        break;
+      case 49:
+        data_vector = XT::Data::OctantQuadratureData<49>::get();
+        break;
+      case 50:
+        data_vector = XT::Data::OctantQuadratureData<50>::get();
+        break;
+      case 51:
+        data_vector = XT::Data::OctantQuadratureData<51>::get();
+        break;
+      case 52:
+        data_vector = XT::Data::OctantQuadratureData<52>::get();
+        break;
+      case 53:
+        data_vector = XT::Data::OctantQuadratureData<53>::get();
+        break;
+      case 54:
+        data_vector = XT::Data::OctantQuadratureData<54>::get();
+        break;
+      case 55:
+        data_vector = XT::Data::OctantQuadratureData<55>::get();
+        break;
+      case 56:
+        data_vector = XT::Data::OctantQuadratureData<56>::get();
+        break;
+      case 57:
+        data_vector = XT::Data::OctantQuadratureData<57>::get();
+        break;
+      case 58:
+        data_vector = XT::Data::OctantQuadratureData<58>::get();
+        break;
+      case 59:
+        data_vector = XT::Data::OctantQuadratureData<59>::get();
+        break;
+      case 60:
+        data_vector = XT::Data::OctantQuadratureData<60>::get();
+        break;
+      case 61:
+        data_vector = XT::Data::OctantQuadratureData<61>::get();
+        break;
+      case 62:
+        data_vector = XT::Data::OctantQuadratureData<62>::get();
+        break;
+      case 63:
+        data_vector = XT::Data::OctantQuadratureData<63>::get();
+        break;
+      case 64:
+        data_vector = XT::Data::OctantQuadratureData<64>::get();
+        break;
+      case 65:
+        data_vector = XT::Data::OctantQuadratureData<65>::get();
+        break;
+      case 66:
+        data_vector = XT::Data::OctantQuadratureData<66>::get();
+        break;
+      case 67:
+        data_vector = XT::Data::OctantQuadratureData<67>::get();
+        break;
+      case 68:
+        data_vector = XT::Data::OctantQuadratureData<68>::get();
+        break;
+      case 69:
+        data_vector = XT::Data::OctantQuadratureData<69>::get();
+        break;
+      case 70:
+        data_vector = XT::Data::OctantQuadratureData<70>::get();
+        break;
       default:
         DUNE_THROW(NotImplemented, "Requested order is not available!");
     }
@@ -175,21 +270,6 @@ public:
         ret[ii].emplace_back(XT::Common::CoordinateConverter<FieldType>::to_cartesian(spherical_coords, true), weight);
       }
     }
-#ifndef NDEBUG
-    // check sanity of quadrature
-    for (size_t ii = 0; ii < 8; ++ii) {
-      const FieldType summed_weights =
-          std::accumulate(ret[ii].begin(),
-                          ret[ii].end(),
-                          0.,
-                          [](const FieldType& sum, const Dune::QuadraturePoint<FieldType, 3> quad_point) {
-                            return sum + quad_point.weight();
-                          });
-      DXT_ASSERT(XT::Common::FloatCmp::eq(summed_weights, 0.5 * M_PI, 1e-4, 1e-4));
-      for (const auto& quad_point : ret[ii])
-        DXT_ASSERT(XT::Common::FloatCmp::eq(quad_point.position().two_norm(), 1., 1e-10, 1e-10));
-    }
-#endif
     return ret;
   }
 }; // class OctantQuadratures

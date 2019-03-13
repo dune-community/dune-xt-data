@@ -34,6 +34,11 @@ template <class FieldType, bool cartesian = true>
 class LebedevQuadrature
 {
 public:
+  static size_t max_order()
+  {
+    return allowed_orders_.back();
+  }
+
   static Dune::QuadratureRule<FieldType, 2 + cartesian> get(const size_t requested_order)
   {
     size_t index = size_t(-1);
@@ -45,8 +50,8 @@ public:
     }
     if (index == size_t(-1))
       std::cerr << "Warning: Requested Lebedev quadrature with order " << requested_order
-                << " is not available, using highest available order " << allowed_orders_.back() << "." << std::endl;
-    size_t order = (index == size_t(-1)) ? allowed_orders_.back() : allowed_orders_[index];
+                << " is not available, using highest available order " << max_order() << "." << std::endl;
+    size_t order = (index == size_t(-1)) ? max_order() : allowed_orders_[index];
 
     std::vector<std::pair<std::array<double, 3>, double>> quad_vector;
     switch (order) {
