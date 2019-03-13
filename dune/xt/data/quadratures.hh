@@ -11,6 +11,7 @@
 #define DUNE_XT_DATA_QUADRATURES_HH
 
 #include <dune/xt/data/quadratures/fekete.hh>
+#include <dune/xt/data/quadratures/merged.hh>
 #include <dune/xt/data/quadratures/gausslobatto.hh>
 
 #endif // DUNE_XT_DATA_QUADRATURES_HH

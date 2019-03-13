@@ -13,6 +13,7 @@
 
 #include <dune/common/fvector.hh>
 
+#include <dune/xt/data/quadratures/merged.hh>
 #include <dune/xt/data/spherical_quadratures.hh>
 
 // integral of x^2*y^4*z^6 over unit sphere

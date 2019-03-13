@@ -10,9 +10,7 @@
 #ifndef DUNE_XT_DATA_SPHERICAL_QUADRATURES_HH
 #define DUNE_XT_DATA_SPHERICAL_QUADRATURES_HH
 
-#include <dune/xt/data/spherical_quadratures/fekete.hh>
 #include <dune/xt/data/spherical_quadratures/lebedev.hh>
-#include <dune/xt/data/spherical_quadratures/merged.hh>
 #include <dune/xt/data/spherical_quadratures/octant.hh>
 #include <dune/xt/data/spherical_quadratures/product.hh>
 

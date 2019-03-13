@@ -7,8 +7,8 @@
 // Authors:
 //   Tobias Leibner  (2017)
 
-#ifndef DUNE_XT_DATA_SPHERICALQUADRATURES_MERGED_HH
-#define DUNE_XT_DATA_SPHERICALQUADRATURES_MERGED_HH
+#ifndef DUNE_XT_DATA_QUADRATURES_MERGED_HH
+#define DUNE_XT_DATA_QUADRATURES_MERGED_HH
 
 #include <numeric>
 #include <vector>
@@ -163,4 +163,4 @@ merged_quadrature(const std::vector<Dune::QuadratureRule<FieldType, dimDomain>>&
 } // namespace XT
 } // namespace Dune
 
-#endif // DUNE_XT_DATA_SPHERICALQUADRATURES_MERGED_HH
+#endif // DUNE_XT_DATA_QUADRATURES_MERGED_HH
