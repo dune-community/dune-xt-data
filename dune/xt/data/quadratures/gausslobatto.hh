@@ -29,13 +29,18 @@ template <class FieldType>
 class GaussLobattoQuadrature
 {
 public:
+  static size_t max_order()
+  {
+    return 197;
+  }
+
   static Dune::QuadratureRule<FieldType, 1> get(const size_t requested_order)
   {
     size_t order = requested_order;
-    if (requested_order > 197) {
+    if (requested_order > max_order()) {
       std::cerr << "Warning: Requested gauss lobatto quadrature with order " << requested_order
-                << " is not available, using highest available order " << 197 << "." << std::endl;
-      order = 197;
+                << " is not available, using highest available order " << max_order() << "." << std::endl;
+      order = max_order();
     }
     if (order < 2)
       order = 2;
