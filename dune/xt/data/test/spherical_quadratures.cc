@@ -35,6 +35,17 @@ GTEST_TEST(SphericalQuadratures, Lebedev)
     result2 += integrand(quad_point.position()) * quad_point.weight();
   EXPECT_NEAR(expected_result, result1, 0.00034);
   EXPECT_NEAR(expected_result, result2, 1e-15);
+  for (size_t order = 1; order < LebedevQuadrature<double>::max_order(); ++order) {
+    const auto quadrature = LebedevQuadrature<double>::get(order);
+    const double summed_weights = std::accumulate(
+        quadrature.begin(),
+        quadrature.end(),
+        0.,
+        [](const double& sum, const Dune::QuadraturePoint<double, 3> quad_point) { return sum + quad_point.weight(); });
+    EXPECT_NEAR(summed_weights, 4. * M_PI, 1e-11);
+    for (const auto& quad_point : quadrature)
+      EXPECT_NEAR(quad_point.position().two_norm(), 1., 1e-15);
+  }
 }
 
 GTEST_TEST(SphericalQuadratures, Octant)
@@ -50,6 +61,21 @@ GTEST_TEST(SphericalQuadratures, Octant)
     result2 += integrand(quad_point.position()) * quad_point.weight();
   EXPECT_NEAR(expected_result, result1, 2e-7);
   EXPECT_NEAR(expected_result, result2, 6e-8);
+  for (size_t order = 1; order < OctantQuadratures<double>::max_order(); ++order) {
+    const auto quadratures = OctantQuadratures<double>::get(order);
+    for (size_t ii = 0; ii < 8; ++ii) {
+      const double summed_weights =
+          std::accumulate(quadratures[ii].begin(),
+                          quadratures[ii].end(),
+                          0.,
+                          [](const double& sum, const Dune::QuadraturePoint<double, 3> quad_point) {
+                            return sum + quad_point.weight();
+                          });
+      EXPECT_NEAR(summed_weights, 0.5 * M_PI, 1.4e-5);
+      for (const auto& quad_point : quadratures[ii])
+        EXPECT_NEAR(quad_point.position().two_norm(), 1., 1e-15);
+    }
+  }
 }
 
 GTEST_TEST(SphericalQuadratures, Product)
