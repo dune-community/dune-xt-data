@@ -6,9 +6,7 @@
 //          with "runtime exception" (http://www.dune-project.org/license.html)
 // Authors:
 //   René Fritze    (2018)
-//   Tobias Leibner (2018)
-//
-// This file is part of the dune-xt-data project:
+//   Tobias Leibner (2018 - 2019)
 
 #include "../lebedev_data.hh"
 

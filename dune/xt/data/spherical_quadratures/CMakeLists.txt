@@ -7,7 +7,7 @@
 #          with "runtime exception" (http://www.dune-project.org/license.html)
 # Authors:
 #   René Fritze    (2018)
-#   Tobias Leibner (2018)
+#   Tobias Leibner (2019)
 # ~~~
 
 add_subdirectory(lebedev)

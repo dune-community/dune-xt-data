@@ -6,7 +6,7 @@
 #      or  GPL-2.0+ (http://opensource.org/licenses/gpl-license)
 #          with "runtime exception" (http://www.dune-project.org/license.html)
 # Authors:
-#   René Fritze (2018)
+#   Tobias Leibner (2019)
 # ~~~
 
 dune_library_add_sources(dxt_data
