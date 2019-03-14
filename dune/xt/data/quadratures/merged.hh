@@ -42,21 +42,21 @@ public:
     MergedQuadratureIterator(const std::vector<QuadratureType>& quadratures,
                              const size_t first_index,
                              const size_t second_index)
-      : quadratures_(quadratures)
+      : quadratures_(&quadratures)
       , first_index_(first_index)
       , second_index_(second_index)
     {
-      assert(first_index_ <= quadratures_.size());
-      assert(first_index == quadratures_.size() || second_index_ <= quadratures_[first_index_].size());
+      assert(first_index_ <= quadratures_->size());
+      assert(first_index == quadratures_->size() || second_index_ <= (*quadratures_)[first_index_].size());
     }
 
     MergedQuadratureIterator& operator++()
     {
-      if (second_index_ != quadratures_[first_index_].size() - 1) {
+      if (second_index_ != (*quadratures_)[first_index_].size() - 1) {
         ++second_index_;
       } else {
         // increase first_index_ until we reach either the next non-empty quadrature or the end
-        while (++first_index_ < quadratures_.size() && !quadratures_[first_index_].size())
+        while (++first_index_ < quadratures_->size() && !(*quadratures_)[first_index_].size())
           ;
         second_index_ = 0;
       }
@@ -72,7 +72,7 @@ public:
 
     bool operator==(const MergedQuadratureIterator& other)
     {
-      return (&quadratures_ == &(other.quadratures_) && first_index_ == other.first_index_
+      return (quadratures_ == other.quadratures_ && first_index_ == other.first_index_
               && second_index_ == other.second_index_);
     }
 
@@ -83,7 +83,7 @@ public:
 
     const QuadPointType& operator*()
     {
-      return quadratures_[first_index_][second_index_];
+      return (*quadratures_)[first_index_][second_index_];
     }
 
     const QuadPointType* operator->() const
@@ -102,7 +102,7 @@ public:
     }
 
   private:
-    const std::vector<QuadratureType>& quadratures_;
+    const std::vector<QuadratureType>* quadratures_;
     size_t first_index_;
     size_t second_index_;
   };

@@ -8,4 +8,3 @@
 # Authors:
 #   René Fritze (2018)
 # ~~~
-
