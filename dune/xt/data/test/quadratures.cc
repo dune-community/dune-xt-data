@@ -63,7 +63,7 @@ GTEST_TEST(Quadratures, Fekete)
 {
   using namespace Dune::XT::Data;
   const auto fekete_quad1 = FeketeQuadrature<double>::get(1);
-  const auto fekete_quad2 = FeketeQuadrature<double>::get(7);
+  const auto fekete_quad2 = FeketeQuadrature<double>::get(13);
   double result1 = 0;
   double result2 = 0;
   for (const auto& quad_point : fekete_quad1)

@@ -98,7 +98,7 @@ public:
 
     size_t second_index() const
     {
-      return second_index;
+      return second_index_;
     }
 
   private:
