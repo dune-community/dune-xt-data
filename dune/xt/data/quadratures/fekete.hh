@@ -32,17 +32,35 @@ template <class FieldType>
 class FeketeQuadrature
 {
 public:
-  static Dune::QuadratureRule<FieldType, 2> get(const size_t rule)
+  static size_t max_order()
   {
+    return 18;
+  }
+
+  static Dune::QuadratureRule<FieldType, 2> get(const size_t requested_order)
+  {
+    size_t order = requested_order;
+    if (requested_order > max_order()) {
+      std::cerr << "Warning: Requested fekete quadrature with order " << requested_order
+                << " is not available, using highest available order " << max_order() << "." << std::endl;
+      order = max_order();
+    }
+    // set order to next multiple of three
+    order = ((order + 2) / 3) * 3;
+    assert(order >= requested_order);
+    int rule = static_cast<int>(order) / 3;
+    // rule number 4 has negative weights so we skip it
+    if (rule >= 4)
+      rule += 1;
+    assert(rule != 4);
     if (rule == 0 || rule > 7)
       DUNE_THROW(NotImplemented,
                  "Only rules 1 to 7 are available! The corresponding orders (number of points) are 10, "
                  "28, 55, 91, 91, 136, 190 and the degrees (polynomial degree up to which the rule is "
                  "exakt) are 3, 6, 9, 12, 12, 15, 18, respectively");
-
     Dune::QuadratureRule<FieldType, 2> quad_rule;
     std::vector<double> xy, weights;
-    get_fekete_rule(static_cast<int>(rule), xy, weights);
+    get_fekete_rule(rule, xy, weights);
     // The weights in the original paper (Taylor, Wingate, Vincent, "An Algorithm for Computing Fekete Points in the
     // Triangle", https://doi.org/10.1137/S0036142998337247) sum up to 2. The TRIANGLE_FEKETE_RULE library divides the
     // weights by 2, so the weights now sum up to 1. We want the weights to sum up to 1/2, the area of the unit
