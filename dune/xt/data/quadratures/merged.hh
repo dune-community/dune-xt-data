@@ -81,7 +81,7 @@ public:
       return !(*this == other);
     }
 
-    const QuadPointType& operator*()
+    const QuadPointType& operator*() const
     {
       return (*quadratures_)[first_index_][second_index_];
     }
