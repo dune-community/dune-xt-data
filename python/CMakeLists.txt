@@ -10,4 +10,5 @@
 # ~~~
 
 add_subdirectory(dune)
-dxt_add_python_tests()
+#TODO: remove alltogether
+# dxt_add_python_tests()

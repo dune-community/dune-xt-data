@@ -18,6 +18,6 @@
 #Name of the module
 Module: dune-xt-data
 Version: 18.11-dev
-Maintainer: rene.milk@wwu.de
+Maintainer: rene.fritze@wwu.de
 #depending on
-Depends: dune-xt-common (>=18.11) dune-pybindxi
+Depends: dune-common 
