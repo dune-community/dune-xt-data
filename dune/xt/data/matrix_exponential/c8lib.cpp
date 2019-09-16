@@ -1,4 +1,4 @@
-#include <dune/xt/common/disable_warnings.hh>
+#include <dune/xt/data/disable_warnings.hh>
 #include <cmath>
 #include <complex>
 #include <cstdlib>
@@ -4779,4 +4779,4 @@ void r8poly4_root(double a,
   return;
 }
 //****************************************************************************80
-#include <dune/xt/common/reenable_warnings.hh>
+#include <dune/xt/data/reenable_warnings.hh>

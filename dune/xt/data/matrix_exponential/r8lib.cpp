@@ -1,4 +1,4 @@
-#include <dune/xt/common/disable_warnings.hh>
+#include <dune/xt/data/disable_warnings.hh>
 #include <cmath>
 #include <complex>
 #include <cstdlib>
@@ -39043,4 +39043,4 @@ void timestamp()
   return;
 #undef TIME_SIZE
 }
-#include <dune/xt/common/reenable_warnings.hh>
+#include <dune/xt/data/reenable_warnings.hh>
