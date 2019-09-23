@@ -305,37 +305,6 @@ void r8plu_inverse(int n, int pivot[], double lu[], double a_inverse[]);
 void r8plu_mul(int n, int pivot[], double lu[], double x[], double b[]);
 void r8plu_sol(int n, int pivot[], double lu[], double b[], double x[]);
 void r8plu_to_r8mat(int n, int pivot[], double lu[], double a[]);
-int r8poly_degree(int na, double a[]);
-double* r8poly_deriv(int n, double c[], int p);
-double r8poly_lagrange_0(int npol, double xpol[], double xval);
-double r8poly_lagrange_1(int npol, double xpol[], double xval);
-double r8poly_lagrange_2(int npol, double xpol[], double xval);
-double* r8poly_lagrange_coef(int npol, int ipol, double xpol[]);
-void r8poly_lagrange_factor(int npol, double xpol[], double xval, double* wval, double* dwdx);
-int r8poly_lagrange_val(int npol, int ipol, double xpol[], double xval, double* pval, double* dpdx);
-int r8poly_order(int na, double a[]);
-void r8poly_print(int n, double a[], string title);
-void r8poly_shift(double scale, double shift, int n, double poly_cof[]);
-double r8poly_value_horner(int n, double a[], double x);
-;
-double* r8poly_values_horner(int m, double c[], int n, double x[]);
-double* r8poly_value_2d(int m, double c[], int n, double x[], double y[]);
-int r8poly2_ex(double x1, double y1, double x2, double y2, double x3, double y3, double* x, double* y);
-int r8poly2_ex2(double x1,
-                double y1,
-                double x2,
-                double y2,
-                double x3,
-                double y3,
-                double* x,
-                double* y,
-                double* a,
-                double* b,
-                double* c);
-void r8poly2_rroot(double a, double b, double c, double* r1, double* r2);
-void r8poly2_val(
-    double x1, double y1, double x2, double y2, double x3, double y3, double x, double* y, double* yp, double* ypp);
-void r8poly2_val2(int ndata, double tdata[], double ydata[], int left, double tval, double* yval);
 void r8pp_delete(int m, int n, double** a);
 double** r8pp_new(int m, int n);
 int r8r8_compare(double x1, double y1, double x2, double y2);
@@ -594,7 +563,6 @@ void r8vec2_sorted_unique(int n, double a1[], double a2[], int& unique_num);
 void r8vec2_sorted_unique_index(int n, double a1[], double a2[], int& unique_num, int indx[]);
 int r8vec2_sum_max_index(int n, double a[], double b[]);
 void r8vec3_print(int n, double a1[], double a2[], double a3[], string title);
-double* roots_to_r8poly(int n, double x[]);
 int s_len_trim(string s);
 void sort_heap_external(int n, int& indx, int& i, int& j, int isgn);
 void timestamp();

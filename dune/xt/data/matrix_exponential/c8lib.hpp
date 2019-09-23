@@ -105,31 +105,4 @@ std::complex<double> cartesian_to_c8(double x, double y);
 
 std::complex<double> polar_to_c8(double r, double theta);
 
-double r8_abs(double x);
-double r8_atan(double y, double x);
-std::complex<double> r8_csqrt(double x);
-double r8_floor(double x);
-double r8_max(double x, double y);
-double r8_sign(double x);
-double r8_uniform_01(int& seed);
-void r8poly2_root(double a, double b, double c, std::complex<double>& r1, std::complex<double>& r2);
-void r8poly3_root(double a,
-                  double b,
-                  double c,
-                  double d,
-                  std::complex<double>& r1,
-                  std::complex<double>& r2,
-                  std::complex<double>& r3);
-void r8poly4_root(double a,
-                  double b,
-                  double c,
-                  double d,
-                  double e,
-                  std::complex<double>& r1,
-                  std::complex<double>& r2,
-                  std::complex<double>& r3,
-                  std::complex<double>& r4);
-void sort_heap_external(int n, int& indx, int& i, int& j, int isgn);
-void timestamp();
-
 #endif // DUNE_XT_DATA_DUNE_XT_DATA_MATRIX_EXPONENTIAL_C8LIB_HPP

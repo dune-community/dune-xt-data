@@ -15,6 +15,22 @@ using namespace std;
 
 #include "triangle_fekete_rule.hpp"
 
+// forward declarations
+void file_name_inc(char* file_name);
+int i4_max(int i1, int i2);
+int i4_min(int i1, int i2);
+int i4_modp(int i, int j);
+int i4_wrap(int ival, int ilo, int ihi);
+double r8_huge();
+int r8_nint(double x);
+void reference_to_physical_t3(double t[], int n, double ref[], double phy[]);
+int s_len_trim(char* s);
+void timestamp();
+char* timestring();
+double triangle_area(double t[2 * 3]);
+void triangle_points_plot(
+    char* file_name, double node_xy[], int node_show, int point_num, double point_xy[], int point_show);
+
 //****************************************************************************80
 
 int fekete_degree(int rule)
@@ -1489,7 +1505,7 @@ int r8_nint(double x)
 
 void reference_to_physical_t3(double t[], int n, double ref[], double phy[])
 
-//****************************************************************************80
+/****************************************************************************80
 //
 //  Purpose:
 //
@@ -1545,7 +1561,7 @@ void reference_to_physical_t3(double t[], int n, double ref[], double phy[])
 //
 //    Output, double PHY[2*N], corresponding points in the
 //    physical triangle.
-//
+*/
 {
   int i;
   int j;
