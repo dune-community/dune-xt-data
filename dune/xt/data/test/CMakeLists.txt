@@ -12,6 +12,11 @@
 
 enable_testing()
 
-# TODO: this needs to switched to standard dune tests begin_testcases(dxt_data) end_testcases() foreach(test
-# ${dxt_test_binaries}) if(TARGET test) target_link_libraries(${test} dxt_data) endif(TARGET test) endforeach(test
-# ${dxt_test_binaries})
+# TODO: this needs to switched to standard dune tests
+# begin_testcases(dxt_data)
+# end_testcases()
+# foreach(test ${dxt_test_binaries})
+#   if(TARGET test)
+#     target_link_libraries(${test} dxt_data)
+#   endif(TARGET test)
+# endforeach(test ${dxt_test_binaries})
