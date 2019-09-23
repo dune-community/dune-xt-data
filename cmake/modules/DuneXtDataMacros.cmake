@@ -93,11 +93,8 @@ endmacro(make_dependent_modules_sys_included)
 # library checks  #########################################################################
 set(DS_REQUIRED_BOOST_LIBS filesystem)
 find_package(PkgConfig)
-find_package(Boost 1.48.0
-             COMPONENTS ${DS_REQUIRED_BOOST_LIBS}
-                        REQUIRED
-                        HINTS
-                        ${root_hints})
+set(BOOST_ROOT "$ENV{BOOST_ROOT}" ${root_hints})
+find_package(Boost 1.48.0 REQUIRED COMPONENTS ${DS_REQUIRED_BOOST_LIBS})
 dune_register_package_flags(INCLUDE_DIRS ${Boost_INCLUDE_DIRS})
 foreach(_boost_lib ${DS_REQUIRED_BOOST_LIBS})
   set(_BOOST_LIB "")
