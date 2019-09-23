@@ -12,6 +12,4 @@
 foreach(order RANGE 2 100 1)
   list(APPEND lb_sources data/gausslobatto${order}.cxx)
 endforeach()
-dune_library_add_sources(dxt_data
-                         SOURCES
-                       ${lb_sources})
+dune_library_add_sources(dxt_data SOURCES ${lb_sources})

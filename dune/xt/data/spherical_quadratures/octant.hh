@@ -18,8 +18,7 @@
 
 #include <dune/geometry/quadraturerules.hh>
 
-#include <dune/xt/common/coordinates.hh>
-#include <dune/xt/common/debug.hh>
+#include <dune/xt/data/coordinates.hh>
 
 #include <dune/xt/data/spherical_quadratures/octant_quadrature/octant_quadrature_data.hh>
 
@@ -263,13 +262,13 @@ public:
       default:
         DUNE_THROW(NotImplemented, "Requested order is not available!");
     }
-    DXT_ASSERT(data_vector.size() == 8);
+    assert(data_vector.size() == 8);
     std::vector<QuadratureType> ret(8);
     for (size_t ii = 0; ii < 8; ++ii) {
       for (size_t jj = 0; jj < data_vector[ii][0].size(); ++jj) {
         FieldVector<FieldType, 2> spherical_coords{data_vector[ii][0][jj], data_vector[ii][1][jj]};
         FieldType weight = data_vector[ii][2][jj];
-        ret[ii].emplace_back(XT::Common::CoordinateConverter<FieldType>::to_cartesian(spherical_coords, true), weight);
+        ret[ii].emplace_back(XT::Data::CoordinateConverter<FieldType>::to_cartesian(spherical_coords, true), weight);
       }
     }
     return ret;

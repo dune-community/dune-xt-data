@@ -20,4 +20,4 @@ Module: dune-xt-data
 Version: 18.11-dev
 Maintainer: rene.fritze@wwu.de
 #depending on
-Depends: dune-common 
+Depends: dune-common dune-geometry dune-grid

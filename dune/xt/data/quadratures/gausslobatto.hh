@@ -17,9 +17,6 @@
 
 #include <dune/geometry/quadraturerules.hh>
 
-#include <dune/xt/common/debug.hh>
-#include <dune/xt/common/float_cmp.hh>
-
 #include <dune/xt/data/quadratures/gausslobatto/gausslobatto_data.hh>
 
 namespace Dune {
@@ -349,7 +346,7 @@ public:
       default:
         DUNE_THROW(NotImplemented, "Requested order is not available!");
     }
-    DXT_ASSERT(data_vector.size() == num_quad_points);
+    assert(data_vector.size() == num_quad_points);
     Dune::QuadratureRule<FieldType, 1> ret;
     // stored values are for [-1, 1], so convert for [0, 1]
     for (const auto& pair : data_vector)

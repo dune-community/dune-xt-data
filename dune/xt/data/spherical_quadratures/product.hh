@@ -16,7 +16,7 @@
 
 #include <dune/grid/yaspgrid.hh>
 
-#include <dune/xt/common/coordinates.hh>
+#include <dune/xt/data/coordinates.hh>
 
 namespace Dune {
 namespace XT {
@@ -61,7 +61,7 @@ public:
     Dune::QuadratureRule<FieldType, 3> product_quad_cartesian;
     for (const auto quad_point : product_quad_spherical)
       product_quad_cartesian.push_back(Dune::QuadraturePoint<FieldType, 3>(
-          Dune::XT::Common::CoordinateConverter<FieldType>::to_cartesian(quad_point.position()), quad_point.weight()));
+          Dune::XT::Data::CoordinateConverter<FieldType>::to_cartesian(quad_point.position()), quad_point.weight()));
     return product_quad_cartesian;
   }
 }; // class SphericalProductQuadrature

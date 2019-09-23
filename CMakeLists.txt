@@ -39,5 +39,11 @@ add_subdirectory(python)
 add_subdirectory("dune/xt/data")
 add_subdirectory("cmake/modules")
 
+# silence warnings from dependent modules
+make_dependent_modules_sys_included()
+
+# add format target
+add_format(${CMAKE_CURRENT_SOURCE_DIR})
+
 # finalize the dune project, e.g. generating config.h etc.
 finalize_dune_project(GENERATE_CONFIG_H_CMAKE)

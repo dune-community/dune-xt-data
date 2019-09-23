@@ -46,3 +46,7 @@
 
 # jetbrains
 .idea
+
+# vscode
+.vscode
+tags

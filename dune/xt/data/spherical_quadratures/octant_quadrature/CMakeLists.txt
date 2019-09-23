@@ -12,6 +12,4 @@
 foreach(order RANGE 2 70 1)
   list(APPEND oq_sources data/order_${order}.cxx)
 endforeach()
-dune_library_add_sources(dxt_data
-                         SOURCES
-                       ${oq_sources})
+dune_library_add_sources(dxt_data SOURCES ${oq_sources})

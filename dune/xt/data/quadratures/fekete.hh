@@ -18,8 +18,6 @@
 
 #include <dune/geometry/quadraturerules.hh>
 
-#include <dune/xt/common/math.hh>
-
 #include <dune/xt/data/quadratures/fekete/fekete.hh>
 
 namespace Dune {

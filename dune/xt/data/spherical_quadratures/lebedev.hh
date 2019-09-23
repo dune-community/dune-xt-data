@@ -18,7 +18,7 @@
 
 #include <dune/geometry/quadraturerules.hh>
 
-#include <dune/xt/common/coordinates.hh>
+#include <dune/xt/data/coordinates.hh>
 
 #include <dune/xt/data/spherical_quadratures/lebedev/lebedev_data.hh>
 
@@ -182,7 +182,7 @@ private:
       Dune::QuadratureRule<FieldType, 3> ret;
       for (const auto& point : quad_in) {
         ret.emplace_back(Dune::QuadraturePoint<FieldType, 3>(
-            XT::Common::CoordinateConverter<FieldType>::to_spherical(point.position()), point.weight()));
+            XT::Data::CoordinateConverter<FieldType>::to_spherical(point.position()), point.weight()));
       }
       return ret;
     }
