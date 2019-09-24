@@ -9,5 +9,4 @@
 #   René Fritze (2018)
 # ~~~
 
-# TODO: this should be removed alltogether
-# dune_pybindxi_add_module(_paths EXCLUDE_FROM_ALL _paths.cc)
+# TODO: this should be removed alltogether dune_pybindxi_add_module(_paths EXCLUDE_FROM_ALL _paths.cc)

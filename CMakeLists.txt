@@ -32,15 +32,15 @@ set(DXT_DATA_BASEDIR "${CMAKE_CURRENT_BINARY_DIR}/data")
 
 # start a dune project with information from dune.module
 dune_project()
-dune_enable_all_packages(INCLUDE_DIRS ${dune-xt-data_SOURCE_DIR}/dune MODULE_LIBRARIES dxt_data)
+dune_enable_all_packages(INCLUDE_DIRS ${dune-xt-data_SOURCE_DIR}/dune MODULE_LIBRARIES dxt_data gtest_dune_xt_data)
+
+# silence warnings from dependent modules
+make_dependent_modules_sys_included()
 
 add_subdirectory(python)
 
 add_subdirectory("dune/xt/data")
 add_subdirectory("cmake/modules")
-
-# silence warnings from dependent modules
-make_dependent_modules_sys_included()
 
 # add format target
 add_format(${CMAKE_CURRENT_SOURCE_DIR})

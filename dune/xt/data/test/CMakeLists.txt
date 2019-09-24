@@ -12,12 +12,10 @@
 
 enable_testing()
 
-# TODO: this needs to switched to standard dune tests
-add_custom_target(test_binaries)
-# begin_testcases(dxt_data)
-# end_testcases()
-# foreach(test ${dxt_test_binaries})
-#   if(TARGET test)
-#     target_link_libraries(${test} dxt_data)
-#   endif(TARGET test)
-# endforeach(test ${dxt_test_binaries})
+include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+dune_library_add_sources(gtest_dune_xt_data SOURCES gtest/gtest-all.cxx)
+
+dune_add_test(NAME test_paths SOURCES paths.cc LINK_LIBRARIES gtest_dune_xt_data)
+dune_add_test(NAME test_quadratures SOURCES quadratures.cc LINK_LIBRARIES gtest_dune_xt_data)
+dune_add_test(NAME test_spherical_quadratures SOURCES spherical_quadratures.cc LINK_LIBRARIES gtest_dune_xt_data)
+add_custom_target(test_binaries DEPENDS test_paths test_quadratures test_spherical_quadratures)

@@ -7,7 +7,7 @@
 // Authors:
 //   Tobias Leibner (2019)
 
-#include <dune/xt/common/test/main.hxx>
+#include <dune/xt/data/test/main.hxx>
 
 #include <dune/common/fvector.hh>
 

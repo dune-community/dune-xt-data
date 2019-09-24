@@ -7,7 +7,7 @@
 // Authors:
 //   Tobias Leibner (2019)
 
-#include <dune/xt/common/test/main.hxx>
+#include <dune/xt/data/test/main.hxx>
 
 #include <dune/common/fvector.hh>
 
@@ -42,8 +42,9 @@ GTEST_TEST(Quadratures, GaussLobatto)
                   return a.position()[0] < b.position()[0];
                 });
       for (size_t ii = 0; ii < quadrature.size(); ++ii) {
-        EXPECT_TRUE(Dune::XT::Common::FloatCmp::eq(quadrature[ii].position(), reference_quadrature[ii].position()));
-        EXPECT_TRUE(Dune::XT::Common::FloatCmp::eq(quadrature[ii].weight(), reference_quadrature[ii].weight()));
+        for (size_t jj = 0; jj < quadrature[ii].position().size(); ++jj)
+          EXPECT_NEAR(quadrature[ii].position()[jj], reference_quadrature[ii].position()[jj], 1e-14);
+        EXPECT_NEAR(quadrature[ii].weight(), reference_quadrature[ii].weight(), 1e-14);
       }
     }
     const double summed_weights = std::accumulate(
