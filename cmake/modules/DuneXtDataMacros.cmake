@@ -118,3 +118,5 @@ foreach(BOOST_ROOT_HINT ${BOOST_ROOT_HINTS})
     break()
   endif()
 endforeach(BOOST_ROOT_HINT ${BOOST_ROOT_HINTS})
+# check for Boost again with REQUIRED keyword to make boost mandatory
+find_package(Boost 1.48.0 REQUIRED COMPONENTS ${DS_REQUIRED_BOOST_LIBS})

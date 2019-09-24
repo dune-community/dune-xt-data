@@ -13,6 +13,7 @@
 enable_testing()
 
 # TODO: this needs to switched to standard dune tests
+add_custom_target(test_binaries)
 # begin_testcases(dxt_data)
 # end_testcases()
 # foreach(test ${dxt_test_binaries})
