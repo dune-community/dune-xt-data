@@ -92,6 +92,20 @@ macro(make_dependent_modules_sys_included) # disable most warnings from dependen
   endforeach(_mod DEPENDENCIES)
 endmacro(make_dependent_modules_sys_included)
 
+macro(add_dummy_python_test)
+  add_custom_target(dummy_python_test
+                    "${CMAKE_BINARY_DIR}/run-in-dune-env"
+                    "${DUNE_PYTHON_VIRTUALENV_EXECUTABLE}"
+                    "${CMAKE_SOURCE_DIR}/python/test/dummy.py"
+                    WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/python"
+                    DEPENDS bindings
+                    VERBATIM USES_TERMINAL)
+  if(NOT TARGET test_python)
+    add_custom_target(test_python)
+  endif(TARGET test_python)
+  add_dependencies(test_python dummy_python_test)
+endmacro(add_dummy_python_test)
+
 # library checks  #########################################################################
 find_package(PkgConfig)
 

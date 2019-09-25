@@ -45,5 +45,11 @@ add_subdirectory("cmake/modules")
 # add format target
 add_format(${CMAKE_CURRENT_SOURCE_DIR})
 
+# add empty bindings target to please CI
+add_custom_target(bindings)
+
+# add empty python test to please CI
+add_dummy_python_test()
+
 # finalize the dune project, e.g. generating config.h etc.
 finalize_dune_project(GENERATE_CONFIG_H_CMAKE)
