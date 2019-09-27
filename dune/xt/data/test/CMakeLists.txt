@@ -13,7 +13,7 @@
 enable_testing()
 
 include_directories(SYSTEM ${CMAKE_CURRENT_SOURCE_DIR}/gtest)
-dune_library_add_sources(gtest_dune_xt_data SOURCES gtest/gtest-all.cxx)
+add_library(gtest_dune_xt_data gtest/gtest-all.cxx)
 
 dune_add_test(NAME
               test_paths

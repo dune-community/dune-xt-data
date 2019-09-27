@@ -32,7 +32,7 @@ set(DXT_DATA_BASEDIR "${CMAKE_CURRENT_BINARY_DIR}/data")
 
 # start a dune project with information from dune.module
 dune_project()
-dune_enable_all_packages(INCLUDE_DIRS ${dune-xt-data_SOURCE_DIR}/dune MODULE_LIBRARIES dxt_data gtest_dune_xt_data)
+dune_enable_all_packages(INCLUDE_DIRS ${dune-xt-data_SOURCE_DIR}/dune MODULE_LIBRARIES dxt_data)
 
 # silence warnings from dependent modules
 make_dependent_modules_sys_included()
