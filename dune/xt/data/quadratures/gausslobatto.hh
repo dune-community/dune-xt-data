@@ -43,7 +43,7 @@ public:
     }
     if (order < 2)
       order = 2;
-    const size_t num_quad_points = (requested_order + 4) / 2;
+    const size_t num_quad_points = (order + 4) / 2;
     std::vector<std::vector<double>> data_vector;
     switch (num_quad_points) {
       case 2:
