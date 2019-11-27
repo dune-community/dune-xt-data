@@ -31,7 +31,7 @@ GTEST_TEST(Quadratures, GaussLobatto)
   EXPECT_NEAR(expected_result1d, result1, 4e-13);
   EXPECT_NEAR(expected_result1d, result2, 1e-15);
   // GaussLobattoQuadrature is available up to order 31 in dune-geometry
-  for (size_t order = 1; order <= GaussLobattoQuadrature<double>::max_order(); ++order) {
+  for (size_t order = 2; order <= GaussLobattoQuadrature<double>::max_order(); ++order) {
     auto quadrature = GaussLobattoQuadrature<double>::get(order);
     if (order <= 31) {
       auto reference_quadrature = Dune::QuadratureRules<double, 1>::rule(
