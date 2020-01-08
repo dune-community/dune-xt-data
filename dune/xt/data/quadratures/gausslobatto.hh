@@ -41,8 +41,10 @@ public:
                 << " is not available, using highest available order " << max_order() << "." << std::endl;
       order = max_order();
     }
-    if (order < 2)
-      order = 2;
+    if (order < 1)
+      order = 1;
+    // order of quadrature rule with n points is 2n - 3
+    // use (order + 4)/2 instead of (order + 3)/2 to get the correct n for even orders
     const size_t num_quad_points = (order + 4) / 2;
     std::vector<std::vector<double>> data_vector;
     switch (num_quad_points) {
