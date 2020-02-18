@@ -45,10 +45,10 @@ public:
     const auto theta_grid_view = theta_grid.leafGridView();
     for (const auto& phi_entity : Dune::elements(phi_grid_view)) {
       const auto phi_quad_rule =
-          Dune::QuadratureRules<FieldType, 1>::rule(phi_entity.geometry().type(), static_cast<int>(order_phi));
+          Dune::QuadratureRules<FieldType, 1>::rule(phi_entity.type(), static_cast<int>(order_phi));
       for (const auto& theta_entity : Dune::elements(theta_grid_view)) {
         const auto theta_quad_rule =
-            Dune::QuadratureRules<FieldType, 1>::rule(theta_entity.geometry().type(), static_cast<int>(order_theta));
+            Dune::QuadratureRules<FieldType, 1>::rule(theta_entity.type(), static_cast<int>(order_theta));
         for (const auto& phi_quad_point : phi_quad_rule)
           for (const auto& theta_quad_point : theta_quad_rule)
             product_quad_spherical.push_back(Dune::QuadraturePoint<FieldType, 2>(
