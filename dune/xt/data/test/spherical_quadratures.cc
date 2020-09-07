@@ -15,7 +15,7 @@
 #include <dune/xt/data/spherical_quadratures.hh>
 
 // integral of x^2*y^4*z^6 over unit sphere
-static const double expected_result = 4. * M_PI / 3003;
+static constexpr double expected_result = 4. * M_PI / 3003;
 static auto integrand = [](const Dune::FieldVector<double, 3> x) {
   return std::pow(x[0], 2) * std::pow(x[1], 4) * std::pow(x[2], 6);
 };
