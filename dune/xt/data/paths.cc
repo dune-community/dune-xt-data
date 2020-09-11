@@ -9,15 +9,16 @@
 
 #include <config.h>
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
+#include <string>
 
 namespace Dune {
 namespace XT {
 namespace Data {
 
-boost::filesystem::path basedir()
+std::filesystem::path basedir()
 {
-  return boost::filesystem::path(DXT_DATA_BASEDIR);
+  return std::filesystem::path(DXT_DATA_BASEDIR);
 }
 
 std::string spe10_model1_filename()

@@ -13,11 +13,11 @@
 
 #include <dune/xt/data/test/main.hxx>
 
-#include <boost/filesystem.hpp>
+#include <filesystem>
 
 #include <dune/xt/data/paths.hh>
 
-using namespace boost::filesystem;
+using namespace std::filesystem;
 
 void test_file(std::string fn)
 {
@@ -26,8 +26,6 @@ void test_file(std::string fn)
   EXPECT_TRUE(exists(filepath));
   EXPECT_TRUE(is_regular_file(filepath));
   EXPECT_GE(file_size(filepath), 1);
-  std::string content;
-  load_string_file(filepath, content);
 }
 
 GTEST_TEST(paths, main)

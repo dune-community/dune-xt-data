@@ -11,7 +11,6 @@
 #ifndef DUNE_XT_DATA_COORDINATES_HH
 #define DUNE_XT_DATA_COORDINATES_HH
 
-
 #include <boost/geometry.hpp>
 
 #include <dune/common/fvector.hh>
