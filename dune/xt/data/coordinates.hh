@@ -27,15 +27,14 @@ namespace Data {
 template <class DomainFieldType>
 class CoordinateConverter
 {
-  typedef typename boost::geometry::model::point<DomainFieldType, 3, typename boost::geometry::cs::cartesian>
-      BoostCartesianCoordType;
-  typedef typename boost::geometry::model::
-      point<DomainFieldType, 2, typename boost::geometry::cs::spherical<boost::geometry::radian>>
-          BoostSphericalCoordType;
+  using BoostCartesianCoordType =
+      typename boost::geometry::model::point<DomainFieldType, 3, typename boost::geometry::cs::cartesian>;
+  using BoostSphericalCoordType = typename boost::geometry::model::
+      point<DomainFieldType, 2, typename boost::geometry::cs::spherical<boost::geometry::radian>>;
 
 public:
-  typedef FieldVector<DomainFieldType, 3> CartesianCoordType;
-  typedef FieldVector<DomainFieldType, 2> SphericalCoordType;
+  using CartesianCoordType = FieldVector<DomainFieldType, 3>;
+  using SphericalCoordType = FieldVector<DomainFieldType, 2>;
 
   static SphericalCoordType to_spherical(const CartesianCoordType& x)
   {
