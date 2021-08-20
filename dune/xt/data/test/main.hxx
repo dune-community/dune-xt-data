@@ -9,7 +9,7 @@
 
 #include "config.h"
 
-#define GTEST_DONT_DEFINE_TEST 1
+#define GTEST_DONT_DEFINE_TEST 0
 
 #include <dune/common/parallel/mpihelper.hh>
 
