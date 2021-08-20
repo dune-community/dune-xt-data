@@ -8,6 +8,9 @@
 //   René Fritze    (2018)
 //   Tobias Leibner (2018 - 2019)
 
+#ifndef DUNE_XT_DATA_QUADRATURES_FEKETE_FEKETE_HH
+#define DUNE_XT_DATA_QUADRATURES_FEKETE_FEKETE_HH
+
 #include <vector>
 
 namespace Dune {
@@ -21,3 +24,5 @@ void get_fekete_rule(const int rule, std::vector<double>& points, std::vector<do
 } // namespace Data
 } // namespace XT
 } // namespace Dune
+
+#endif // DUNE_XT_DATA_QUADRATURES_FEKETE_FEKETE_HH
