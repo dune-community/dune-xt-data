@@ -20,9 +20,7 @@
 
 #include <dune/xt/data/quadratures/fekete/fekete.hh>
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 // Fekete Quadrature on the reference triangle
@@ -70,8 +68,6 @@ public:
 }; // class FeketeQuadrature
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
 
 #endif // DUNE_XT_DATA_QUADRATURES_FEKETEQUADRATURE_HH

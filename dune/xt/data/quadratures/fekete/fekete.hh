@@ -13,16 +13,12 @@
 
 #include <vector>
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 void get_fekete_rule(const int rule, std::vector<double>& points, std::vector<double>& weights);
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
 
 #endif // DUNE_XT_DATA_QUADRATURES_FEKETE_FEKETE_HH

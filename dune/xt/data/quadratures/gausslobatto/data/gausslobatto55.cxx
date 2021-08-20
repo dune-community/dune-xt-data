@@ -12,9 +12,7 @@
 
 #include "../gausslobatto_data.hh"
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 template <>
@@ -78,6 +76,4 @@ std::vector<std::vector<double>> GaussLobattoData<55>::get()
 }
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data

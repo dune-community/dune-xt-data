@@ -16,9 +16,7 @@
 #include <utility>
 #include <vector>
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 template <size_t numQuadPoints>
@@ -29,8 +27,6 @@ struct GaussLobattoData
 };
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
 
 #endif // DUNE_XT_DATA_DUNE_XT_DATA_GAUSSLOBATTO_GAUSSLOBATTO_DATA_HH

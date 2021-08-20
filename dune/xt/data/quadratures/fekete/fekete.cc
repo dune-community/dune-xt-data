@@ -11,9 +11,7 @@
 #include "fekete.hh"
 #include "triangle_fekete_rule.hpp"
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 void get_fekete_rule(const int rule, std::vector<double>& points, std::vector<double>& weights)
@@ -25,6 +23,4 @@ void get_fekete_rule(const int rule, std::vector<double>& points, std::vector<do
 }
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data

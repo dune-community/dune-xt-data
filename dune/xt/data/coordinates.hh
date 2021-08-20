@@ -16,9 +16,7 @@
 
 #include <dune/common/fvector.hh>
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 /** Converts from (x, y, z) to (theta, phi) on the unit sphere s.t.
@@ -52,19 +50,16 @@ public:
       const auto& phi = x_spherical[1];
       return CartesianCoordType{
           std::sqrt(1 - std::pow(mu, 2)) * std::cos(phi), std::sqrt(1 - std::pow(mu, 2)) * std::sin(phi), mu};
-    } else {
-      BoostSphericalCoordType x_spherical_boost(x_spherical[1], x_spherical[0]);
-      BoostCartesianCoordType x_boost;
-      boost::geometry::transform(x_spherical_boost, x_boost);
-      return CartesianCoordType{
-          boost::geometry::get<0>(x_boost), boost::geometry::get<1>(x_boost), boost::geometry::get<2>(x_boost)};
     }
+    BoostSphericalCoordType x_spherical_boost(x_spherical[1], x_spherical[0]);
+    BoostCartesianCoordType x_boost;
+    boost::geometry::transform(x_spherical_boost, x_boost);
+    return CartesianCoordType{
+        boost::geometry::get<0>(x_boost), boost::geometry::get<1>(x_boost), boost::geometry::get<2>(x_boost)};
   }
 };
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
 
 #endif // DUNE_XT_DATA_COORDINATES_HH

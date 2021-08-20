@@ -12,9 +12,7 @@
 
 #include "../lebedev_data.hh"
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 template <>
@@ -612,6 +610,4 @@ void LebedevData<41>::get(std::vector<std::pair<std::array<double, 3>, double>>&
                {{0.859379855890721, 0.0899920584207486, -0.503356427107512}, 0.0226476048182606}};
 }
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
