@@ -45,6 +45,9 @@ add_subdirectory("cmake/modules")
 # add format target
 add_format(${CMAKE_CURRENT_SOURCE_DIR})
 
+# add tidy target
+add_tidy(${CMAKE_CURRENT_SOURCE_DIR})
+
 # add empty bindings target to please CI
 add_custom_target(bindings)
 

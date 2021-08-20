@@ -17,9 +17,7 @@
 
 #include <dune/geometry/quadraturerules.hh>
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 // Takes a vector of quadratures and treats them as a single quadrature
@@ -37,7 +35,7 @@ public:
   class MergedQuadratureIterator
   {
   public:
-    MergedQuadratureIterator() {}
+    MergedQuadratureIterator() = default;
 
     MergedQuadratureIterator(const std::vector<QuadratureType>& quadratures,
                              const size_t first_index,
@@ -161,8 +159,6 @@ merged_quadrature(const std::vector<Dune::QuadratureRule<FieldType, dimDomain>>&
 }
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
 
 #endif // DUNE_XT_DATA_QUADRATURES_MERGED_HH

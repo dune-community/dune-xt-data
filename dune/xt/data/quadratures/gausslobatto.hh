@@ -19,9 +19,7 @@
 
 #include <dune/xt/data/quadratures/gausslobatto/gausslobatto_data.hh>
 
-namespace Dune {
-namespace XT {
-namespace Data {
+namespace Dune::XT::Data {
 
 
 template <class FieldType>
@@ -358,8 +356,6 @@ public:
 }; // class GaussLobattoQuadrature
 
 
-} // namespace Data
-} // namespace XT
-} // namespace Dune
+} // namespace Dune::XT::Data
 
 #endif // DUNE_GDT_HYPERBOLIC_PROBLEMS_MOMENTMODELS_GAUSSLOBATTO_HH

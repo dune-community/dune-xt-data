@@ -13,6 +13,8 @@
 # ~~~
 
 *.d
+compile_commands.json
+.cache
 
 # Compiled Object files
 *.slo
@@ -50,3 +52,4 @@
 # vscode
 .vscode
 tags
+

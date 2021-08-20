@@ -66,6 +66,54 @@ macro(add_format glob_dir)
   add_dependencies(format "format_${fn}_cmake")
 endmacro(add_format)
 
+find_package(ClangTidy 8)
+macro(add_tidy)
+  if(ClangTidy_FOUND)
+    dune_symlink_to_source_files(FILES .clang-tidy)
+    message(STATUS "adding tidy target")
+    add_custom_target(tidy)
+    add_custom_target(fix_tidy)
+    add_tidy_subdir(data)
+  else()
+    message(WARNING "not adding tidy target because clang-tidy is missing or"
+                    "wrong version: ${ClangTidy_EXECUTABLE} ${ClangTidy_VERSION}")
+  endif(ClangTidy_FOUND)
+endmacro(add_tidy)
+
+macro(add_tidy_subdir _dxt_subdir)
+  set(BASE ${PROJECT_SOURCE_DIR}/dune/xt/${_dxt_subdir})
+  file(GLOB_RECURSE _files
+                    "${BASE}/*.hh"
+                    "${BASE}/*.cc"
+                    "${BASE}/*.cxx")
+  set(BASE ${PROJECT_SOURCE_DIR}/python/dune/xt/${_dxt_subdir})
+  file(GLOB_RECURSE _pyfiles
+                    "${BASE}/*.hh"
+                    "${BASE}/*.cc"
+                    "${BASE}/*.cxx")
+  list(APPEND _files ${_pyfiles})
+  list(REMOVE_DUPLICATES _files)
+  list(REMOVE_ITEM _files ${PROJECT_SOURCE_DIR}/dune/xt/data/test/gtest/gtest-all.cxx)
+  list(REMOVE_ITEM _files ${PROJECT_SOURCE_DIR}/dune/xt/data/disable_warnings.hh)
+  list(REMOVE_ITEM _files ${PROJECT_SOURCE_DIR}/dune/xt/data/reenable_warnings.hh)
+  set(TIDY_ARGS
+      -config=
+      # -format-style=file
+      -extra-arg-before='-includeconfig.h'
+      -p=${CMAKE_CURRENT_BINARY_DIR}
+      -header-filter=\".*/dune/xt/${_dxt_subdir}.*\")
+  add_custom_target(tidy_${_dxt_subdir}
+    COMMAND ${RunTidy_EXECUTABLE} ${TIDY_ARGS}
+                            -export-fixes=${CMAKE_CURRENT_BINARY_DIR}/clang-tidy.fixes ${_files}
+                    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+  add_custom_target(fix_tidy_${_dxt_subdir}
+    COMMAND ${RunTidy_EXECUTABLE} ${TIDY_ARGS} -fix ${_files}
+                    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
+  add_dependencies(tidy tidy_${_dxt_subdir})
+  add_dependencies(fix_tidy fix_tidy_${_dxt_subdir})
+endmacro(add_tidy_subdir)
+
+
 macro(INCLUDE_SYS_DIR)
   foreach(ARG ${ARGN})
     if(IS_DIRECTORY ${ARG})
