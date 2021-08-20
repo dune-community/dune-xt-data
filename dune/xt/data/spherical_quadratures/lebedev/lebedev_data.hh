@@ -11,6 +11,7 @@
 #ifndef DUNE_XT_DATA_DUNE_XT_DATA_LEBEDEV_LEBEDEV_DATA_HH
 #define DUNE_XT_DATA_DUNE_XT_DATA_LEBEDEV_LEBEDEV_DATA_HH
 
+#include <stddef.h>
 #include <array>
 #include <utility>
 #include <vector>

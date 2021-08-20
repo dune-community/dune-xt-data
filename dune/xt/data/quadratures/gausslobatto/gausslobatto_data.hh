@@ -11,6 +11,7 @@
 #ifndef DUNE_XT_DATA_DUNE_XT_DATA_GAUSSLOBATTO_GAUSSLOBATTO_DATA_HH
 #define DUNE_XT_DATA_DUNE_XT_DATA_GAUSSLOBATTO_GAUSSLOBATTO_DATA_HH
 
+#include <stddef.h>
 #include <array>
 #include <utility>
 #include <vector>
